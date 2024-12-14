@@ -5,18 +5,18 @@
 Bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-## 2. Install dependencies:
+## 2. Install dependencies and run the pytest to unit test model parameters below 20K , use of batch normalization, dropout and GAP:
 bash
 pip install -r requirements.txt
+pytest tests/test_model.py # On Windows: pytest tests\test_model.py
 
-## 3. Train the model and check for test accuracy > 99.4  within 20K parameters and display logs:
+## 3. Train the model and check for test accuracy > 99.4  within 20K parameters and display training logs:
 
 Train the notebook file mnist_train_notebook.ipynb in collab
 
-The best test accuracy achieved is: 99.44%
+The best test accuracy achieved is: 99.44%  at 19th epoch
 
 The training logs are pasted below:
-
 
 
 Epoch:  1
@@ -153,12 +153,7 @@ loss=0.0126817487180233 batch_id=468: 100%|██████████| 469/4
 Test set: Average loss: 0.0208, Accuracy: 9944/10000 (99.44%)
 
 
-## 4.Run tests:
-
-bash
-pytest tests/test_model.py -v
-
-## 5. To deploy to GitHub:
+## 4. To deploy to GitHub:
 
 * Create a new repository on GitHub
 
@@ -173,9 +168,11 @@ git commit -m "Initial commit"
 
 git branch -M main
 
-git remote add origin <your-repo-url>
+git remote add origin https://github.com/monimoyd/ml_training_ci_cd_mnist.git
 
 git push -u origin main
+
+## 5. Running GitHub Actions:
 
 ### The GitHub Actions workflow will automatically:
 
@@ -183,11 +180,8 @@ git push -u origin main
 
 * Install dependencies
 
-* Train the model
-
 * Run all tests
 
-* Save the trained model as an artifact
 
 ## 6. The tests check for:
 
