@@ -23,18 +23,6 @@ jobs:
         python -m pip install --upgrade pip
         export TORCH_CUDA_ARCH_LIST="None"
         pip install -r requirements.txt      
-    
-    - name: Train model
-      run: python src/train.py
-    
+        
     - name: Run tests
-      run: pytest tests/test_model.py -v
-      
-    - name: Generate MNIST augmented images
-      run: python src/utils.py 
-    
-    - name: Upload trained model
-      uses: actions/upload-artifact@v4
-      with:
-        name: trained-model
-        path: latest_model.pth
+      run: pytest tests/test_model.py -v      
