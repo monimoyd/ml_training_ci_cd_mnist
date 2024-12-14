@@ -2,7 +2,6 @@ import sys
 import torch
 import torchvision
 import torchvision.transforms as transforms
-import matplotlib.pyplot as plt
 import numpy as np
 from torchvision.datasets import MNIST
 from torchvision import datasets, transforms
